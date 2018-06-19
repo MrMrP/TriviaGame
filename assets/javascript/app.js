@@ -62,32 +62,35 @@ $("#send-button").click(function (){
 
 
 //Allow user to select the answer of their choice and upon clikcing the submit button will store the answers in an array//
-var quizAnswers;
-    qAnswers = [
+var quizAnswers  = [
      "true",
-     "c",
-     "c",
+     "C",
+     "C",
     "true",
-     "d",
+     "D",
      "true",
-     "a",
+     "A",
      "true"
 ];
 
-var userAnswer = $("#quiz").val().trim();
 
-// var userAnswer = newDiv;
-// var newDiv;
-// var uAnswer = [
-//     getAnswer()
-// ] 
+var userAnswers = [];
 
-// function getAnswer(){
-//     $("send-button").submit();
-//     return;
+
+function getAnswer(){
+    //event.preventDefault();
+    var questionOne = $(".1").children("input:checked");
+    // if (questionOne.value != null && questionOne.value != undefined)
+    // {
+        userAnswers.push(questionOne.value);
+    // } else {
+    //     userAnswers.push("");
+    // }
+
     
-//     // $(document).$("#quiz")  
-// };
+
+    // $(document).$("#quiz")  
+};
 
 // var userAnswer = submit();  
 // console.log(userAnswer);
@@ -99,16 +102,14 @@ var userAnswer = $("#quiz").val().trim();
 
 
 
-    console.log(qAnswers);
-    console.log(userAnswer)
-
-
 
 //User answers will then be compared to the 'answer sheet'. Users will then recieve a pop alert indicate the amount of questions answers correct/incorrect///
+for (var i= 0; i < quizAnswers.length; i++) {
 
-// if (qAnswer[i] === uAnswer[i]) {
-//     $("rightAnswer").append(rightAnswer++, (++1))}
-// else if(qAnswer[i] !== uAnswer[i]) 
-//     {$("wrongAnswer").append(wrongAnswer, ++1);
-//     $(".results").show();
-//     }
+    if (quizAnswers[i] === userAnswers[i]) {
+        $("#rightAnswer").append(rightAnswer++);
+    } else {
+        $("#wrongAnswer").append(wrongAnswer++);
+        $(".results").show();
+    }
+}
