@@ -4,7 +4,45 @@ $("document").ready(function(){
     $("#time-left").hide();
 
 //Function for countdown Time used for duration of game//
-getAnswer()
+
+var number = 30;
+var intervalId;
+// to make countdown start once Start BUtton is clicked// 
+$("#startButton").on("click", run);
+     function run() 
+     {
+      clearInterval(intervalId);
+      intervalId = setInterval(decrement, 1000);
+    }
+
+    //  The decrement function.
+    function decrement() {
+    //  Decrease number by one.
+    number--;
+
+    //  Show the number in the #show-number tag.
+    $("#time-left").html("<h2>" + number + "</h2>");
+    //  Once number hits zero...
+      if (number === 0) {
+     //  ...run the stop function.
+        stop();
+    //  Alert the user that time is up.
+        alert("Time Up!");
+      }
+    }
+
+    //  The stop function
+    function stop() {
+
+      //  Clears our intervalId
+      //  We just pass the name of the interval
+      //  to the clearInterval function.
+      clearInterval(intervalId);
+    }
+
+    //  Execute the run function.
+    run();
+// getAnswer()
     
 
 //Upon clicking the "Lets Get Started" Button. Page will change and display the question form for players to submit answers ///
@@ -36,17 +74,20 @@ var quizAnswers;
      "true"
 ];
 
-var userAnswer = newDiv;
-var newDiv;
-var uAnswer = [
-    getAnswer()
-] 
+var userAnswer = $("#quiz").val().trim();
 
-function getAnswer(){
-    $("send-button").submit();
-    return;
-    // $(document).$("#quiz")  
-};
+// var userAnswer = newDiv;
+// var newDiv;
+// var uAnswer = [
+//     getAnswer()
+// ] 
+
+// function getAnswer(){
+//     $("send-button").submit();
+//     return;
+    
+//     // $(document).$("#quiz")  
+// };
 
 // var userAnswer = submit();  
 // console.log(userAnswer);
@@ -65,3 +106,9 @@ function getAnswer(){
 
 //User answers will then be compared to the 'answer sheet'. Users will then recieve a pop alert indicate the amount of questions answers correct/incorrect///
 
+// if (qAnswer[i] === uAnswer[i]) {
+//     $("rightAnswer").append(rightAnswer++, (++1))}
+// else if(qAnswer[i] !== uAnswer[i]) 
+//     {$("wrongAnswer").append(wrongAnswer, ++1);
+//     $(".results").show();
+//     }
