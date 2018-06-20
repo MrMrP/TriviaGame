@@ -79,7 +79,7 @@ var userAnswers = [];
 
 function getAnswer(){
     //event.preventDefault();
-    var questionOne = $(".1", "input:checked");
+    var questionOne = $(".1").children("input:checked");
     // if (questionOne.value != null && questionOne.value != undefined)
     // {
         userAnswers.push(questionOne.value);
