@@ -79,16 +79,29 @@ var userAnswers = [];
 
 function getAnswer(){
     //event.preventDefault();
-    var questionOne = $(".1").children("input:checked");
+    var questionOne = $(".1", "input:checked");
     // if (questionOne.value != null && questionOne.value != undefined)
     // {
         userAnswers.push(questionOne.value);
     // } else {
     //     userAnswers.push("");
     // }
-
+    var questionTwo = $(".2").children("input:checked");
+    userAnswers.push(questionTwo.value);
+    var questionThree = $(".3").children("input:checked");
+    userAnswers.push(questionThree.value);
+    var questionFour = $(".4").children("input:checked");
+    userAnswers.push(questionFour.value);
+    var questionFive = $(".5").children("input:checked");
+    userAnswers.push(questionFive.value);
+    var questionSix = $(".6").children("input:checked");
+    userAnswers.push(questionSix.value);
+    var questionSeven = $(".7").children("input:checked");
+    userAnswers.push(questionSeven.value);
+    var questionEight = $(".8").children("input:checked");
+    userAnswers.push(questionEight.value);
     
-
+console.log(userAnswers)
     // $(document).$("#quiz")  
 };
 
@@ -104,12 +117,20 @@ function getAnswer(){
 
 
 //User answers will then be compared to the 'answer sheet'. Users will then recieve a pop alert indicate the amount of questions answers correct/incorrect///
+var rightAnswers = 0;
+var wrongAnswers = 0; 
+
+function CheckAnswers() {
+
 for (var i= 0; i < quizAnswers.length; i++) {
 
     if (quizAnswers[i] === userAnswers[i]) {
-        $("#rightAnswer").append(rightAnswer++);
+        $("#rightAnswer").append(rightAnswers++);
     } else {
-        $("#wrongAnswer").append(wrongAnswer++);
+        $("#wrongAnswer").append(wrongAnswers++);
         $(".results").show();
     }
-}
+}}
+CheckAnswers();
+console.log(rightAnswers);
+console.log(wrongAnswers);
