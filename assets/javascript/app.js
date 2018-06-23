@@ -53,13 +53,11 @@ $("#startButton").click(function (){
     $("#time-left").show();
 
 $("#send-button").click(function (){
-    event.preventDefault();
+    event.preventDefault();   
 
 });
 }); 
 });   
-
-
 
 //Allow user to select the answer of their choice and upon clikcing the submit button will store the answers in an array//
 var quizAnswers  = [
@@ -73,37 +71,121 @@ var quizAnswers  = [
      "true"
 ];
 
-
 var userAnswers = [];
 
-
 function getAnswer(){
+
+    var rightAnswers = 0;
+    var wrongAnswers = 0;
+
     //event.preventDefault();
-    var questionOne = $(".1").children("input:checked");
+    var questionOne = 
+    document.querySelector('input[name = "q1"]:checked').value;
+    userAnswers.push(questionOne);
+    if (quizAnswers[0] == userAnswers[0]) {
+        rightAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+    
+
+    var questionTwo = 
+    document.querySelector('input[name = "q2"]:checked').value;
+    userAnswers.push(questionTwo);
+    if (quizAnswers[1] == userAnswers[1]) {
+        rightAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+
+    var questionThree = 
+    document.querySelector('input[name = "q3"]:checked').value;
+    userAnswers.push(questionThree);
+    if (quizAnswers[2] == userAnswers[2]) {
+        rightAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+
+    var questionFour = 
+    document.querySelector('input[name = "q4"]:checked').value;
+    userAnswers.push(questionFour);
+    if (quizAnswers[3] == userAnswers[3]) {
+        rightAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+
+    var questionFive = 
+    document.querySelector('input[name = "q5"]:checked').value;
+    userAnswers.push(questionFive);
+    if (quizAnswers[4] == userAnswers[4]) {
+        rightAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+
+    var questionSix = 
+    document.querySelector('input[name = "q6"]:checked').value;
+    userAnswers.push(questionSix);
+    if (quizAnswers[5] == userAnswers[5]) {
+        rightAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+
+    var questionSeven = 
+    document.querySelector('input[name = "q7"]:checked').value;
+    userAnswers.push(questionSeven);
+    if (quizAnswers[6] == userAnswers[6]) {
+        rightAnswers++;
+    } else {
+        wrongAnswers++;
+
+    }
+
+    var questionEight = 
+    document.querySelector('input[name = "q8"]:checked').value;
+    userAnswers.push(questionEight);
+    if (quizAnswers[7] == userAnswers[7]) {
+        rightAnswers++;
+    } else {
+        wrongAnswers++;
+    }
+   
+
+
+
+    // $("#a").val().trim();
     // if (questionOne.value != null && questionOne.value != undefined)
     // {
-        userAnswers.push(questionOne.value);
+        
     // } else {
     //     userAnswers.push("");
     // }
-    var questionTwo = $(".2").children("input:checked");
-    userAnswers.push(questionTwo.value);
-    var questionThree = $(".3").children("input:checked");
-    userAnswers.push(questionThree.value);
-    var questionFour = $(".4").children("input:checked");
-    userAnswers.push(questionFour.value);
-    var questionFive = $(".5").children("input:checked");
-    userAnswers.push(questionFive.value);
-    var questionSix = $(".6").children("input:checked");
-    userAnswers.push(questionSix.value);
-    var questionSeven = $(".7").children("input:checked");
-    userAnswers.push(questionSeven.value);
-    var questionEight = $(".8").children("input:checked");
-    userAnswers.push(questionEight.value);
-    
-console.log(userAnswers)
+
+console.log(userAnswers);
+console.log(rightAnswers,wrongAnswers);
+alert("You got: " + rightAnswers + " answers right" + "\nYou got: " + wrongAnswers + " answers wrong");
+
     // $(document).$("#quiz")  
 };
+
+ 
+
+// function CheckAnswers(quizAnswers, userAnswers, rightAnswers, wrongAnswers) {
+
+// for (var i= 0; i < quizAnswers.length; i++) {
+
+//     if (quizAnswers[i] === userAnswers[i]) {
+//         rightAnswers++;
+//     } else {
+//         wrongAnswers++;
+//     }}}
+        
+        // $(".results").show();
+    // }
+// }}
 
 // var userAnswer = submit();  
 // console.log(userAnswer);
@@ -112,25 +194,3 @@ console.log(userAnswers)
 // $("#final").click(function (){
 //     $(document).("#quiz")
 // console.log(userAnswer);
-
-
-
-
-//User answers will then be compared to the 'answer sheet'. Users will then recieve a pop alert indicate the amount of questions answers correct/incorrect///
-var rightAnswers = 0;
-var wrongAnswers = 0; 
-
-function CheckAnswers() {
-
-for (var i= 0; i < quizAnswers.length; i++) {
-
-    if (quizAnswers[i] === userAnswers[i]) {
-        $("#rightAnswer").append(rightAnswers++);
-    } else {
-        $("#wrongAnswer").append(wrongAnswers++);
-        $(".results").show();
-    }
-}}
-CheckAnswers();
-console.log(rightAnswers);
-console.log(wrongAnswers);
