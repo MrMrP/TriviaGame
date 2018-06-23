@@ -53,7 +53,8 @@ $("#startButton").click(function (){
     $("#time-left").show();
 
 $("#send-button").click(function (){
-    event.preventDefault();   
+    event.preventDefault(); 
+    stop();  
 
 });
 }); 
